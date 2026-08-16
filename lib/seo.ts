@@ -1,6 +1,6 @@
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nexusassembly.ca').replace(/\/+$/, '')
 export const SITE_NAME = 'NEXUS CANADA ASSEMBLY CENTRE'
-export const DEFAULT_SOCIAL_IMAGE = '/images/hero.png'
+export const DEFAULT_SOCIAL_IMAGE = '/images/og-image.jpg'
 
 export const languageTags: Record<string, string> = {
   en: 'en-CA',

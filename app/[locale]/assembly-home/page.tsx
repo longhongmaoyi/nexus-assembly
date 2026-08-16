@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { AssemblyHomePage } from '@/components/assembly/home-page'
 import { assemblyCopy } from '@/lib/assembly-content'
 import { isLocale, type Locale } from '@/lib/i18n'
-import { SITE_URL } from '@/lib/seo'
+import { SITE_URL, SITE_NAME, DEFAULT_SOCIAL_IMAGE, languageTags } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,12 +14,15 @@ export async function generateMetadata(props: {
   const locale = params.locale as Locale
   const title = assemblyCopy.hero.title[locale]
   const description = assemblyCopy.hero.subtitle[locale]
+  const url = `${SITE_URL}/${locale}`
+  const socialImage = `${SITE_URL}${DEFAULT_SOCIAL_IMAGE}`
 
   return {
+    metadataBase: new URL(SITE_URL),
     title,
     description,
     alternates: {
-      canonical: `${SITE_URL}/${locale}`,
+      canonical: url,
       languages: {
         'en-CA': `${SITE_URL}/en`,
         'zh-CN': `${SITE_URL}/zh`,
@@ -29,15 +32,29 @@ export async function generateMetadata(props: {
     },
     openGraph: {
       type: 'website',
-      url: `${SITE_URL}/${locale}`,
-      siteName: 'NEXUS CANADA ASSEMBLY CENTRE',
+      url,
+      siteName: SITE_NAME,
       title,
       description,
-      locale: locale === 'en' ? 'en-CA' : locale === 'zh' ? 'zh-CN' : 'fr-CA',
-      alternateLocale: locale === 'en' ? ['zh-CN', 'fr-CA'] : locale === 'zh' ? ['en-CA', 'fr-CA'] : ['en-CA', 'zh-CN'],
-      images: [{ url: '/images/hero.png', alt: title }],
+      locale: languageTags[locale],
+      alternateLocale: (Object.keys(languageTags) as string[])
+        .filter((l) => l !== locale)
+        .map((l) => languageTags[l]),
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
-    twitter: { card: 'summary_large_image', title, description, images: ['/images/hero.png'] },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [socialImage],
+    },
     robots: { index: true, follow: true },
   }
 }
