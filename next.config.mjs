@@ -2,8 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    formats: ['image/avif', 'image/webp'],
-    qualities: [75, 90, 92, 95, 100],
+    // Serve pre-compressed assets as-is — Vercel Hobby image optimization
+    // is quota-limited (HTTP 402 when exhausted); our assets are already
+    // optimized WebP/PNG/JPEG sized for the UI.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
