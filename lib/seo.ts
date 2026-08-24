@@ -1,17 +1,13 @@
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nexusassembly.ca').replace(/\/+$/, '')
-export const SITE_NAME = 'NEXUS CANADA ASSEMBLY CENTRE'
-export const DEFAULT_SOCIAL_IMAGE = '/images/og-image.jpg'
+import { locales, languageTags } from '@/lib/i18n'
+import { SITE } from '@/lib/site'
 
-export const languageTags: Record<string, string> = {
-  en: 'en-CA',
-  zh: 'zh-CN',
-  fr: 'fr-CA',
-}
-
-export function localePath(locale: string, slug?: string) {
-  return `/${locale}${slug ? `/${slug}` : ''}`
-}
-
-export function absoluteUrl(locale: string, slug?: string) {
-  return `${SITE_URL}${localePath(locale, slug)}`
+/** Build hreflang alternates for a locale-neutral path, e.g. '/products'. */
+export function languageAlternates(path: string): Record<string, string> {
+  const languages: Record<string, string> = {
+    'x-default': `${SITE.url}/en${path === '/' ? '' : path}`,
+  }
+  for (const l of locales) {
+    languages[languageTags[l]] = `${SITE.url}/${l}${path === '/' ? '' : path}`
+  }
+  return languages
 }

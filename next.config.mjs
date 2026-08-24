@@ -13,6 +13,21 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Legacy routes from the previous site → trilingual equivalents
+      { source: '/en/assembly-home', destination: '/en', permanent: true },
+      { source: '/assembly-centre', destination: '/en/assembly', permanent: true },
+      { source: '/why-nexus', destination: '/en/about', permanent: true },
+      { source: '/compliance', destination: '/en/engineering-compliance', permanent: true },
+      { source: '/resources', destination: '/en/products', permanent: true },
+      { source: '/food-trailers', destination: '/en/products/mobile-commercial-units', permanent: true },
+      { source: '/modular-spaces', destination: '/en/products/modular-living-spaces', permanent: true },
+      { source: '/enclosed-cargo', destination: '/en/products/enclosed-trailers', permanent: true },
+      { source: '/waste-solutions', destination: '/en/products/commercial-waste-solutions', permanent: true },
+      { source: '/utility-trailers', destination: '/en/products', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {
