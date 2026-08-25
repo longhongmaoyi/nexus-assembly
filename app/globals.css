@@ -118,3 +118,8 @@ body {
     animation: none;
   }
 }
+
+/* Anchor offset for sticky header */
+[id] {
+  scroll-margin-top: 92px;
+}
