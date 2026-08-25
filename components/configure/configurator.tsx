@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   PRODUCTS,
   getProduct,
@@ -10,7 +10,7 @@ import {
 } from '@/lib/products'
 import { CFG, FORM } from '@/lib/copy'
 import { SITE } from '@/lib/site'
-import { tr, type Locale, type LocalizedText } from '@/lib/i18n'
+import { tr, type Locale } from '@/lib/i18n'
 
 const STORAGE_KEY = 'nexus-configuration-v1'
 const STEPS_COUNT = 6
@@ -110,10 +110,6 @@ export function Configurator({ locale }: { locale: Locale }) {
 
   const product = state.productId ? getProduct(state.productId) : undefined
   const tier = state.tierId ? getTier(state.tierId) : null
-  const selectedUpgrades = useMemo(
-    () => (product ? getUpgradesFor(product).filter((u) => state.upgradeIds.includes(u.id)) : []),
-    [product, state.upgradeIds]
-  )
 
   function selectProduct(slug: string) {
     setState((s) => ({ ...s, productId: slug, tierId: null, upgradeIds: [] }))

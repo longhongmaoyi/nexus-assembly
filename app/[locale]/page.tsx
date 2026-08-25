@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { HomePage } from '@/components/home/home-page'
-import { HOME } from '@/lib/content'
 import { SITE } from '@/lib/site'
 import { defaultLocale, isLocale, tr } from '@/lib/i18n'
 import { languageAlternates } from '@/lib/seo'

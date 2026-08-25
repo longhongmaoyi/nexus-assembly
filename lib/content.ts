@@ -1,4 +1,4 @@
-import { t, type LocalizedText } from '@/lib/i18n'
+import { t } from '@/lib/i18n'
 
 export const HOME = {
   heroBadge: t(
