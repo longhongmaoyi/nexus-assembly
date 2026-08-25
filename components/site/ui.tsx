@@ -4,11 +4,11 @@ import type { ReactNode } from 'react'
 
 export const btn = {
   primary:
-    'inline-flex items-center justify-center gap-2 rounded-md bg-brand-500 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-600',
+    'inline-flex items-center justify-center gap-2 rounded-md bg-brand-500 px-6 py-3 text-sm font-bold text-white shadow-[0_10px_24px_-12px_rgba(122,193,67,0.7)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-600 hover:shadow-[0_16px_32px_-12px_rgba(122,193,67,0.6)]',
   outlineLight:
-    'inline-flex items-center justify-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-bold text-white transition-colors hover:border-white hover:bg-white/10',
+    'inline-flex items-center justify-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white/10',
   outlineDark:
-    'inline-flex items-center justify-center gap-2 rounded-md border border-navy-200 px-6 py-3 text-sm font-bold text-navy-900 transition-colors hover:border-navy-900',
+    'inline-flex items-center justify-center gap-2 rounded-md border border-navy-200 px-6 py-3 text-sm font-bold text-navy-900 transition-all duration-200 hover:-translate-y-0.5 hover:border-navy-900 hover:bg-navy-50',
 }
 
 export function SectionHeading({
@@ -27,11 +27,16 @@ export function SectionHeading({
   return (
     <div className={center ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'}>
       {eyebrow ? (
-        <p className={`text-xs font-bold uppercase tracking-[0.22em] ${dark ? 'text-brand-400' : 'text-brand-600'}`}>
+        <p
+          className={`inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] ${
+            dark ? 'text-brand-400' : 'text-brand-600'
+          } ${center ? 'mx-auto' : ''}`}
+        >
+          <span aria-hidden className="h-px w-8 bg-brand-500" />
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={`mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl ${dark ? 'text-white' : 'text-navy-900'}`}>
+      <h2 className={`mt-3 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl ${dark ? 'text-white' : 'text-navy-900'}`}>
         {title}
       </h2>
       {subtitle ? (

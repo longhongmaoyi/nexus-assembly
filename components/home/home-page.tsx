@@ -7,6 +7,7 @@ import {
   ClipboardCheck,
   Factory,
   Globe2,
+  MapPin,
   Ship,
 } from 'lucide-react'
 import { PRODUCTS } from '@/lib/products'
@@ -81,7 +82,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           fill
           priority
           sizes="100vw"
-          className="-z-10 object-cover object-center"
+          className="-z-10 object-cover object-center animate-kenburns"
         />
         <div
           aria-hidden
@@ -91,7 +92,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           aria-hidden
           className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-navy-950/40"
         />
-        <div className="relative mx-auto max-w-site px-4 py-24 sm:px-6 lg:px-8 lg:py-36">
+        <div className="relative mx-auto max-w-site px-4 py-24 sm:px-6 lg:pl-24 lg:px-8 xl:pl-32 lg:py-36">
           <p className="inline-flex rounded-full border border-brand-500/40 bg-brand-500/10 px-3.5 py-1.5 text-xs font-semibold text-brand-300 backdrop-blur-sm">
             {tr(locale, HOME.heroBadge)}
           </p>
@@ -112,6 +113,24 @@ export function HomePage({ locale }: { locale: Locale }) {
               {tr(locale, CTA.browseProducts)}
             </Link>
           </div>
+          <div
+            aria-hidden
+            className="mt-10 h-px max-w-md bg-gradient-to-r from-brand-500/50 via-white/15 to-transparent"
+          />
+          <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm font-medium text-navy-100/75">
+            <span className="inline-flex items-center gap-2">
+              <BadgeCheck className="h-4 w-4 text-brand-400" />
+              CSA Z240 / A277
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-brand-400" />
+              Markham, Ontario
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Globe2 className="h-4 w-4 text-brand-400" />
+              EN · 中文 · FR
+            </span>
+          </div>
         </div>
       </section>
 
@@ -126,7 +145,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {HOME.whyPoints.map((point, i) => (
               <Reveal key={point.title.en} delay={i * 60}>
-                <div className="h-full rounded-2xl border border-navy-100 bg-navy-50/60 p-6 transition hover:-translate-y-0.5 hover:shadow-card">
+                <div className="h-full rounded-2xl border border-navy-100 bg-navy-50/60 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-card-lg">
                   <FeatureIcon icon={WHY_ICONS[i] ?? Factory} />
                   <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{tr(locale, point.title)}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-navy-600">{tr(locale, point.desc)}</p>
@@ -181,9 +200,9 @@ function ProductsSection({ locale }: { locale: Locale }) {
             <Reveal key={product.slug} delay={i * 50}>
               <Link
                 href={`/${locale}/products/${product.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-card transition hover:-translate-y-1 hover:shadow-card-lg"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-card-lg"
               >
-                <div className="relative h-44 overflow-hidden bg-navy-100">
+                <div className="relative h-48 overflow-hidden bg-navy-100">
                   <Image
                     src={product.image}
                     alt=""

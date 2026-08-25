@@ -68,9 +68,9 @@ export const HOME = {
   ],
   productsKicker: t('Our Product Solutions', '产品解决方案', 'Nos solutions de produits'),
   productsTitle: t(
-    'Five product lines. One Canadian assembly standard.',
-    '五大产品线，一个加拿大组装标准。',
-    'Cinq gammes de produits. Une norme canadienne d’assemblage.'
+    'Four product lines. One Canadian assembly standard.',
+    '四大产品线，一个加拿大组装标准。',
+    'Quatre gammes de produits. Une norme canadienne d’assemblage.'
   ),
   productsBody: t(
     'Every category ships in Standard, Comfort and Premium packages and can be personalized through our online configurator.',

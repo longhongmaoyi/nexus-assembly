@@ -54,7 +54,7 @@ export async function generateMetadata({
       'NEXUS Assembly Centre',
       'CSA certified modular',
       'A277 certification',
-      'custom trailers Ontario',
+      'custom modular units Ontario',
     ],
     robots: { index: true, follow: true },
     openGraph: {

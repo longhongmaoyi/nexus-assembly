@@ -42,7 +42,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-950/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-950/85 backdrop-blur-md supports-[backdrop-filter]:bg-navy-950/70">
       <div className="mx-auto flex h-[76px] max-w-site items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           href={`/${locale}`}

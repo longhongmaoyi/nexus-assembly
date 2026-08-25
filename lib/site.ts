@@ -15,9 +15,9 @@ export const SITE = {
     'Construit selon les normes canadiennes. Livré en toute confiance.'
   ),
   description: t(
-    'NEXUS Assembly Centre combines global manufacturing with Canadian assembly, inspection and CSA-compliant certification to deliver modular living spaces, mobile commercial units, enclosed trailers, industrial solutions and commercial waste solutions.',
-    'NEXUS 组装中心将全球制造与加拿大本地组装、检验及 CSA 合规认证相结合，交付模块化居住空间、移动商业单元、封闭式拖车、工业解决方案与商业垃圾解决方案。',
-    'Le Centre d’assemblage NEXUS allie fabrication mondiale, assemblage canadien, inspection et certification aux normes CSA pour livrer des espaces de vie modulaires, des unités commerciales mobiles, des remorques fermées, des solutions industrielles et des solutions de déchets commerciaux.'
+    'NEXUS Assembly Centre combines global manufacturing with Canadian assembly, inspection and CSA-compliant certification to deliver modular living spaces, mobile commercial units, industrial solutions and commercial waste solutions.',
+    'NEXUS 组装中心将全球制造与加拿大本地组装、检验及 CSA 合规认证相结合，交付模块化居住空间、移动商业单元、工业解决方案与商业垃圾解决方案。',
+    'Le Centre d’assemblage NEXUS allie fabrication mondiale, assemblage canadien, inspection et certification aux normes CSA pour livrer des espaces de vie modulaires, des unités commerciales mobiles, des solutions industrielles et des solutions de déchets commerciaux.'
   ),
   hours: t(
     'Mon–Fri · 9:00 AM – 6:00 PM ET',
@@ -59,15 +59,6 @@ export const NAV: NavItem[] = [
           'Food trailers & mobile retail',
           '餐车拖车与移动零售',
           'Remorques-restaurants et commerce mobile'
-        ),
-      },
-      {
-        href: '/products/enclosed-trailers',
-        label: t('Enclosed Trailers', '封闭式拖车', 'Remorques fermées'),
-        desc: t(
-          'Cargo, contractor & custom builds',
-          '货运、工程与定制车型',
-          'Chargement, entrepreneurs et sur mesure'
         ),
       },
       {
@@ -155,11 +146,6 @@ export const FOOTER_COLS: { title: LocalizedText; links: NavChild[] }[] = [
       {
         href: '/products/mobile-commercial-units',
         label: t('Mobile Commercial Units', '移动商业单元', 'Unités commerciales mobiles'),
-        desc: t('', '', ''),
-      },
-      {
-        href: '/products/enclosed-trailers',
-        label: t('Enclosed Trailers', '封闭式拖车', 'Remorques fermées'),
         desc: t('', '', ''),
       },
       {

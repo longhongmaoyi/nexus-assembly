@@ -19,9 +19,9 @@ export async function generateMetadata({
   const loc = isLocale(locale) ? locale : defaultLocale
   const titles = { en: 'Products', zh: '产品中心', fr: 'Produits' }
   const descs = {
-    en: 'Browse the five NEXUS product lines: modular living spaces, mobile commercial units, enclosed trailers, industrial solutions and commercial waste solutions.',
-    zh: '浏览 NEXUS 五大产品线：模块化居住空间、移动商业单元、封闭式拖车、工业解决方案与商业垃圾解决方案。',
-    fr: 'Découvrez les cinq gammes NEXUS : espaces de vie modulaires, unités commerciales mobiles, remorques fermées, solutions industrielles et déchets commerciaux.',
+    en: 'Browse the four NEXUS product lines: modular living spaces, mobile commercial units, industrial solutions and commercial waste solutions.',
+    zh: '浏览 NEXUS 四大产品线：模块化居住空间、移动商业单元、工业解决方案与商业垃圾解决方案。',
+    fr: 'Découvrez les quatre gammes NEXUS : espaces de vie modulaires, unités commerciales mobiles, solutions industrielles et déchets commerciaux.',
   }
   return {
     title: titles[loc],
@@ -46,9 +46,9 @@ export default async function ProductsPage({
       <PageHero
         eyebrow={tr(loc, { en: 'Our Product Solutions', zh: '产品解决方案', fr: 'Nos solutions de produits' })}
         title={tr(loc, {
-          en: 'Five product lines. One Canadian assembly standard.',
-          zh: '五大产品线，一个加拿大组装标准。',
-          fr: 'Cinq gammes. Une norme canadienne d’assemblage.',
+          en: 'Four product lines. One Canadian assembly standard.',
+          zh: '四大产品线，一个加拿大组装标准。',
+          fr: 'Quatre gammes. Une norme canadienne d’assemblage.',
         })}
         description={tr(loc, {
           en: 'Every category ships in Standard, Comfort and Premium packages and can be personalized through our online configurator.',

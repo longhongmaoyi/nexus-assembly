@@ -8,6 +8,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
 
   return (
     <footer className="bg-navy-950 text-white">
+      <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-brand-500/50 to-transparent" />
       <div className="mx-auto max-w-site px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
