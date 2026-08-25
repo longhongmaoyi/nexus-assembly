@@ -86,35 +86,35 @@ export const HOME = {
   ),
   processSteps: [
     {
-      title: t('Configure', '选配定制', 'Configurer'),
+      title: t('Engineering & Design', '工程设计与制图', 'Ingénierie et conception'),
       desc: t(
-        'Pick a product line, package tier and upgrades — or send us your own drawings.',
-        '选择产品线、套餐等级与升级项——或直接发送您的图纸。',
-        'Choisissez une gamme, un forfait et des améliorations — ou envoyez-nous vos propres plans.'
+        'Our engineers turn your requirements into production-ready drawings and a firm quotation.',
+        '工程师将您的需求转化为可投产图纸，并出具正式报价。',
+        'Nos ingénieurs transforment vos exigences en plans prêts pour la production et en une soumission ferme.'
       ),
     },
     {
-      title: t('Engineer & Quote', '工程审核与报价', 'Ingénierie et soumission'),
+      title: t('Precision Assembly', '精密组装', 'Assemblage de précision'),
       desc: t(
-        'Our team reviews compliance, materials and logistics, then issues a firm quotation.',
-        '团队审核合规性、材料与物流，随后出具正式报价。',
-        'Notre équipe vérifie la conformité, les matériaux et la logistique, puis émet une soumission ferme.'
+        'Framing, systems and finishes are assembled at our Markham facility to engineering tolerances.',
+        '框架、系统与内饰在万锦厂区按工程公差精密组装。',
+        'Ossature, systèmes et finitions assemblés à Markham selon les tolérances d’ingénierie.'
       ),
     },
     {
-      title: t('Assemble & Inspect', '组装与检验', 'Assembler et inspecter'),
+      title: t('Quality Inspection', '质量检验', 'Inspection qualité'),
       desc: t(
-        'Units are assembled and stage-inspected at our Markham facility with full photo documentation.',
-        '单元在万锦厂区组装并分阶段检验，全程照片留档。',
-        'Les unités sont assemblées et inspectées par étapes à Markham avec documentation photo complète.'
+        'Staged inspections with photo records at framing, rough-in, finishing and final sign-off.',
+        '框架、隐蔽工程、精整与终验分阶段检验，全程照片留档。',
+        'Inspections échelonnées avec photos : ossature, installations encastrées, finition et signature finale.'
       ),
     },
     {
-      title: t('Deliver & Support', '交付与售后', 'Livrer et soutenir'),
+      title: t('Safe Delivery', '安全交付', 'Livraison sécurisée'),
       desc: t(
-        'We coordinate delivery across Canada and stay available for warranty and parts support.',
-        '我们统筹全加配送，并持续提供质保与配件支持。',
-        'Nous coordonnons la livraison partout au Canada et restons disponibles pour garantie et pièces.'
+        'Finished units are protected, transported and delivered across Canada, ready to deploy.',
+        '完工单元经封装保护，运抵加拿大各地，即可部署使用。',
+        'Les unités finies sont protégées, transportées et livrées partout au Canada, prêtes à déployer.'
       ),
     },
   ],
@@ -129,6 +129,12 @@ export const HOME = {
     '选择产品、套餐与升级项，填写联系方式，即可通过邮件发送可打印的配置摘要——我们将回复工程意见与报价。',
     'Choisissez un produit, un forfait et des améliorations, ajoutez vos coordonnées, puis courriel-nous un résumé imprimable — nous répondons avec rétroaction d’ingénierie et soumission.'
   ),
+  configurePoints: [
+    t('Pick your product, package and upgrades', '选择产品、套餐与升级项', 'Choisissez produit, forfait et améliorations'),
+    t('See package pricing update live', '套餐价格实时更新', 'Voyez le prix du forfait en temps réel'),
+    t('Email a printable configuration summary', '一键邮件发送可打印配置摘要', 'Courrielez un résumé de configuration imprimable'),
+    t('Get engineering feedback and a quotation', '获取工程意见与正式报价', 'Recevez une rétroaction d’ingénierie et une soumission'),
+  ],
   configureCta: t('Start configuring', '开始定制', 'Commencer la configuration'),
   supplierCtaTitle: t(
     'Manufacture for Canada with a partner on the ground.',

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import {
   ArrowRight,
   BadgeCheck,
+  ChevronRight,
   ClipboardCheck,
   Factory,
   Globe2,
@@ -16,6 +17,13 @@ import { SectionHeading, FeatureIcon, CheckItem, btn } from '@/components/site/u
 import { Reveal } from '@/components/site/reveal'
 
 const WHY_ICONS = [Factory, Globe2, ClipboardCheck, BadgeCheck, Ship]
+
+const PROCESS_IMAGES = [
+  '/images/process/step-01.jpg',
+  '/images/process/step-02.jpg',
+  '/images/process/step-03.jpg',
+  '/images/process/step-04.jpg',
+]
 
 const SUPPLIER_BULLETS = [
   {
@@ -66,45 +74,44 @@ export function HomePage({ locale }: { locale: Locale }) {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950">
+      <section className="relative isolate overflow-hidden bg-navy-950">
+        <Image
+          src="/images/hero-banner.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-10 object-cover object-center"
+        />
         <div
           aria-hidden
-          className="absolute inset-0"
-          style={{ background: 'radial-gradient(70% 130% at 85% 0%, rgba(122,193,67,0.18), transparent 65%)' }}
+          className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/70 to-navy-950/25"
         />
-        <div className="relative mx-auto grid max-w-site items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:py-24">
-          <div>
-            <p className="inline-flex rounded-full border border-brand-500/40 bg-brand-500/10 px-3.5 py-1.5 text-xs font-semibold text-brand-300">
-              {tr(locale, HOME.heroBadge)}
-            </p>
-            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl xl:text-6xl">
-              {tr(locale, HOME.heroTitleA)}
-              <br />
-              <span className="text-brand-400">{tr(locale, HOME.heroTitleB)}</span>
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-navy-100/80">
-              {tr(locale, HOME.heroSub)}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href={`/${locale}/configure`} className={btn.primary}>
-                {tr(locale, CTA.configureProduct)}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href={`/${locale}/products`} className={btn.outlineLight}>
-                {tr(locale, CTA.browseProducts)}
-              </Link>
-            </div>
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-navy-950/40"
+        />
+        <div className="relative mx-auto max-w-site px-4 py-24 sm:px-6 lg:px-8 lg:py-36">
+          <p className="inline-flex rounded-full border border-brand-500/40 bg-brand-500/10 px-3.5 py-1.5 text-xs font-semibold text-brand-300 backdrop-blur-sm">
+            {tr(locale, HOME.heroBadge)}
+          </p>
+          <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl xl:text-6xl">
+            {tr(locale, HOME.heroTitleA)}
+            <br />
+            <span className="text-brand-400">{tr(locale, HOME.heroTitleB)}</span>
+          </h1>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-navy-100/85">
+            {tr(locale, HOME.heroSub)}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href={`/${locale}/configure`} className={btn.primary}>
+              {tr(locale, CTA.configureProduct)}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href={`/${locale}/products`} className={btn.outlineLight}>
+              {tr(locale, CTA.browseProducts)}
+            </Link>
           </div>
-          <Reveal direction="left" className="relative">
-            <Image
-              src="/images/hero-facility.jpg"
-              alt=""
-              width={880}
-              height={660}
-              priority
-              className="rounded-2xl border border-white/10 object-cover shadow-card-lg"
-            />
-          </Reveal>
         </div>
       </section>
 
@@ -202,19 +209,35 @@ function ProductsSection({ locale }: { locale: Locale }) {
           <Reveal delay={250}>
             <Link
               href={`/${locale}/configure`}
-              className="group flex h-full flex-col justify-between rounded-2xl bg-navy-950 p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-lg"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl bg-navy-950 shadow-card transition hover:-translate-y-1 hover:shadow-card-lg"
             >
-              <div>
+              <div className="relative h-44 overflow-hidden">
+                <Image
+                  src="/images/configurator-trailer.jpg"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 380px"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent" />
+              </div>
+              <div className="flex flex-1 flex-col p-6">
                 <p className="font-display text-xs font-bold uppercase tracking-widest text-brand-400">
                   {tr(locale, HOME.configureKicker)}
                 </p>
                 <h3 className="mt-3 font-display text-xl font-bold text-white">{tr(locale, HOME.configureTitle)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-100/75">{tr(locale, HOME.configureBody)}</p>
+                <ul className="mt-4 space-y-2.5">
+                  {HOME.configurePoints.map((point) => (
+                    <CheckItem key={point.en} dark>
+                      {tr(locale, point)}
+                    </CheckItem>
+                  ))}
+                </ul>
+                <span className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-brand-400 transition group-hover:text-brand-300">
+                  {tr(locale, HOME.configureCta)}
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                </span>
               </div>
-              <span className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-brand-400">
-                {tr(locale, HOME.configureCta)}
-                <ArrowRight className="h-4 w-4" />
-              </span>
             </Link>
           </Reveal>
         </div>
@@ -231,10 +254,33 @@ function ProcessSection({ locale }: { locale: Locale }) {
         <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {HOME.processSteps.map((step, i) => (
             <Reveal key={step.title.en} delay={i * 60}>
-              <li className="relative h-full rounded-2xl border border-white/10 bg-navy-900 p-6">
-                <span className="font-display text-4xl font-black text-brand-500/90">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="mt-3 font-display text-lg font-bold text-white">{tr(locale, step.title)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy-100/75">{tr(locale, step.desc)}</p>
+              <li className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-navy-900">
+                <div className="relative h-40 overflow-hidden sm:h-44">
+                  <Image
+                    src={PROCESS_IMAGES[i]}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/10 to-transparent"
+                  />
+                </div>
+                <div className="relative p-6">
+                  <span className="font-display text-4xl font-black text-brand-500/90">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="mt-3 font-display text-lg font-bold text-white">{tr(locale, step.title)}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy-100/75">{tr(locale, step.desc)}</p>
+                </div>
+                {i < PROCESS_IMAGES.length - 1 && (
+                  <span
+                    aria-hidden
+                    className="absolute -right-4 top-[92px] z-10 hidden h-9 w-9 items-center justify-center rounded-full bg-brand-500 text-navy-950 shadow-card-lg lg:flex"
+                  >
+                    <ChevronRight className="h-5 w-5" strokeWidth={3} />
+                  </span>
+                )}
               </li>
             </Reveal>
           ))}
