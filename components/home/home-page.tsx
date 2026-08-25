@@ -119,7 +119,7 @@ function HeroSection({ locale }: { locale: Locale }) {
         aria-hidden
         className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-transparent to-navy-950/40"
       />
-      <div className="relative mx-auto max-w-site px-4 py-24 sm:px-6 lg:px-8 lg:py-36">
+      <div className="relative mx-auto max-w-site px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <p className="inline-flex rounded-full border border-brand-500/40 bg-brand-500/10 px-3.5 py-1.5 text-xs font-semibold text-brand-300 backdrop-blur-sm">
           {tr(locale, HOME.heroBadge)}
         </p>
@@ -163,7 +163,7 @@ function HeroSection({ locale }: { locale: Locale }) {
 
 function WhySection({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
@@ -172,7 +172,7 @@ function WhySection({ locale }: { locale: Locale }) {
             subtitle={tr(locale, HOME.whyBody)}
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
           {HOME.whyPoints.map((point, i) => (
             <Reveal key={point.title.en} delay={i * 60}>
               <div className="h-full rounded-2xl border border-navy-100 bg-navy-50/60 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-card-lg">
@@ -190,7 +190,7 @@ function WhySection({ locale }: { locale: Locale }) {
 
 function ProductsSection({ locale }: { locale: Locale }) {
   return (
-    <section id="products" className="bg-navy-50/60 py-20 sm:py-24">
+    <section id="products" className="bg-navy-50/60 py-12 sm:py-16">
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
@@ -199,7 +199,7 @@ function ProductsSection({ locale }: { locale: Locale }) {
             subtitle={tr(locale, HOME.productsBody)}
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2">
           {PRODUCTS.map((product, i) => (
             <Reveal key={product.slug} delay={i * 50}>
               <Link
@@ -228,41 +228,6 @@ function ProductsSection({ locale }: { locale: Locale }) {
             </Reveal>
           ))}
 
-          {/* Configurator promo tile */}
-          <Reveal delay={250}>
-            <Link
-              href={`/${locale}/configure`}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl bg-navy-950 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-card-lg"
-            >
-              <div className="relative h-44 overflow-hidden">
-                <Image
-                  src="/images/configurator-trailer.jpg"
-                  alt=""
-                  fill
-                  sizes="(max-width: 768px) 100vw, 380px"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent" />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <p className="font-display text-xs font-bold uppercase tracking-widest text-brand-400">
-                  {tr(locale, HOME.configureKicker)}
-                </p>
-                <h3 className="mt-3 font-display text-xl font-bold text-white">{tr(locale, HOME.configureTitle)}</h3>
-                <ul className="mt-4 space-y-2.5">
-                  {HOME.configurePoints.map((point) => (
-                    <CheckItem key={point.en} dark>
-                      {tr(locale, point)}
-                    </CheckItem>
-                  ))}
-                </ul>
-                <span className="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-brand-400 transition group-hover:text-brand-300">
-                  {tr(locale, HOME.configureCta)}
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                </span>
-              </div>
-            </Link>
-          </Reveal>
         </div>
       </div>
     </section>
@@ -271,7 +236,7 @@ function ProductsSection({ locale }: { locale: Locale }) {
 
 function CustomizeSection({ locale }: { locale: Locale }) {
   return (
-    <section id="customization" className="relative overflow-hidden bg-navy-950 py-20 sm:py-24">
+    <section id="customization" className="relative overflow-hidden bg-navy-950 py-12 sm:py-16">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -316,8 +281,8 @@ function CustomizeSection({ locale }: { locale: Locale }) {
               <Image
                 src="/images/configurator-trailer.jpg"
                 alt=""
-                width={612}
-                height={376}
+                width={632}
+                height={408}
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="h-auto w-full object-cover"
               />
@@ -337,12 +302,12 @@ function CustomizeSection({ locale }: { locale: Locale }) {
 
 function ProcessSection({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading eyebrow={tr(locale, HOME.processKicker)} title={tr(locale, HOME.processTitle)} />
         </Reveal>
-        <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
           {HOME.processSteps.map((step, i) => (
             <Reveal key={step.title.en} delay={i * 60}>
               <li className="group relative h-full overflow-hidden rounded-2xl border border-navy-100 bg-navy-50/60 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-card-lg">
@@ -353,10 +318,6 @@ function ProcessSection({ locale }: { locale: Locale }) {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
                     className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-navy-50 via-transparent to-transparent"
                   />
                 </div>
                 <div className="relative p-6">
@@ -383,7 +344,7 @@ function ProcessSection({ locale }: { locale: Locale }) {
 
 function AssemblySection({ locale }: { locale: Locale }) {
   return (
-    <section id="assembly" className="bg-navy-50/60 py-20 sm:py-24">
+    <section id="assembly" className="bg-navy-50/60 py-12 sm:py-16">
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
@@ -392,7 +353,7 @@ function AssemblySection({ locale }: { locale: Locale }) {
             subtitle={tr(locale, ASSEMBLY.sub)}
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
           {ASSEMBLY.capabilities.map((cap, i) => (
             <Reveal key={cap.title.en} delay={i * 60}>
               <div className="h-full rounded-2xl border border-navy-100 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-card-lg">
@@ -420,7 +381,7 @@ function AssemblySection({ locale }: { locale: Locale }) {
 
 function QualitySection({ locale }: { locale: Locale }) {
   return (
-    <section id="quality" className="relative overflow-hidden bg-navy-950 py-20 sm:py-24">
+    <section id="quality" className="relative overflow-hidden bg-navy-950 py-12 sm:py-16">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -435,7 +396,7 @@ function QualitySection({ locale }: { locale: Locale }) {
             subtitle={tr(locale, COMPLIANCE.sub)}
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
           {COMPLIANCE.reviewSteps.map((step, i) => (
             <Reveal key={step.title.en} delay={i * 60}>
               <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40">
@@ -449,7 +410,7 @@ function QualitySection({ locale }: { locale: Locale }) {
           ))}
         </div>
         <Reveal delay={120}>
-          <div className="mt-12 rounded-2xl border border-brand-500/25 bg-gradient-to-br from-navy-900 to-navy-800 p-8">
+          <div className="mt-10 rounded-2xl border border-brand-500/25 bg-gradient-to-br from-navy-900 to-navy-800 p-8">
             <h3 className="font-display text-lg font-bold text-white">{tr(locale, COMPLIANCE.standardsTitle)}</h3>
             <ul className="mt-5 flex flex-wrap gap-2.5">
               {COMPLIANCE.standards.map((standard) => (
@@ -471,7 +432,7 @@ function QualitySection({ locale }: { locale: Locale }) {
 
 function PartnerSection({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-navy-50/60 py-20 sm:py-24">
+    <section className="bg-navy-50/60 py-12 sm:py-16">
       <div className="mx-auto grid max-w-site gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <Reveal>
           <div id="suppliers">
@@ -502,7 +463,7 @@ function PartnerSection({ locale }: { locale: Locale }) {
 
 function AboutSection({ locale }: { locale: Locale }) {
   return (
-    <section id="about" className="bg-white py-20 sm:py-24">
+    <section id="about" className="bg-white py-12 sm:py-16">
       <div className="mx-auto grid max-w-site gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <Reveal direction="right">
           <SectionHeading
@@ -549,7 +510,7 @@ function ContactSection({ locale }: { locale: Locale }) {
   ]
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-navy-950 py-20 sm:py-24">
+    <section id="contact" className="relative overflow-hidden bg-navy-950 py-12 sm:py-16">
       <div
         aria-hidden
         className="absolute inset-0"
@@ -573,7 +534,7 @@ function ContactSection({ locale }: { locale: Locale }) {
             })}
           />
         </Reveal>
-        <div className="mt-12 grid gap-10 lg:grid-cols-2">
+        <div className="mt-8 grid gap-10 sm:mt-10 lg:grid-cols-2">
           <div className="space-y-4">
             {infoItems.map(({ icon: Icon, label, value, href }) => (
               <Reveal key={label.en} direction="right">
