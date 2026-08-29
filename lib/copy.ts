@@ -95,9 +95,9 @@ export const FORM = {
   send: t('Send Message', '发送信息', 'Envoyer le message'),
   sending: t('Sending…', '发送中……', 'Envoi…'),
   success: t(
-    "Thanks! Your email draft has opened — just hit send. Prefer a direct line? We're at info@nexusassembly.ca.",
-    '谢谢！邮件草稿已打开——只需点击发送。也可以直接联系我们：info@nexusassembly.ca。',
-    'Merci ! Votre brouillon de courriel est ouvert — il ne reste qu’à l’envoyer. Joignez-nous directement à info@nexusassembly.ca.'
+    "Thanks! Your email draft has opened — just hit send. Prefer a direct line? We're at info@nexus-assembly.vercel.app.",
+    '谢谢！邮件草稿已打开——只需点击发送。也可以直接联系我们：info@nexus-assembly.vercel.app。',
+    'Merci ! Votre brouillon de courriel est ouvert — il ne reste qu’à l’envoyer. Joignez-nous directement à info@nexus-assembly.vercel.app.'
   ),
   requiredHint: t('* required fields', '* 为必填项', '* champs requis'),
   errRequired: t('This field is required.', '此项为必填。', 'Ce champ est requis.'),

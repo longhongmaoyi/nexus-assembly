@@ -9,7 +9,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.nexusassembly.ca',
+        hostname: '**.nexus-assembly.vercel.app',
       },
     ],
   },
